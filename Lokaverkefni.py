@@ -1,5 +1,6 @@
 #Lokaverkefni
 #Ingólfur Óskarsson
+#Guðlaugur Haukur Árnason
 import random
 
 
@@ -67,6 +68,7 @@ while svar!="2":
             print("1 - Kasta teningi?")
             print("2 - Staðsetning?")
             print("3 - Hætta")
+            print("-------------------")
             svar1=input("Sláðu inn tölu frá bilinu 1-3 ")
 
 
@@ -114,60 +116,56 @@ while svar!="2":
                     elif hamstur.stadur == x:
                         print("HAMSTURINN KASTAR ÞÉR ÁFRAM!")
                         player1.stadur = player1.stadur + hamstur.afl
-                        print("\n þú ert kominn á reit",player1.stadur)
+                        
 
                 player1.stadur = player1.stadur + teningur
-                print("Þú ert á reit", player1.stadur)
+                print("Þú ert á reit  :", player1.stadur)
                 teningur = random.randint(1, 6)
                 print("Núna kasta rotturnar")
                 att=random.randint(1,2)
                 if att == 1:
                     print("Rotta 1 fær", teningur,"og fer áfram")
                     rotta1.stadur = rotta1.stadur + teningur
-                    print("Rotta 1 er kominn á reit", rotta1.stadur)
+                    print("Rotta 1 er kominn á reit   :", rotta1.stadur)
                 elif att == 2:
                     print("Rotta 1 fær", teningur,"og fer til baka")
                     rotta1.stadur = rotta1.stadur - teningur
-                    print("Rotta 1 er kominn á reit", rotta1.stadur)
+                    print("Rotta 1 er kominn á reit   :", rotta1.stadur)
 
                 teningur = random.randint(1, 6)
                 att = random.randint(1 , 2)
                 if att == 1:
                     print("Rotta 2 fær", teningur, "og fer áfram")
                     rotta2.stadur = rotta2.stadur + teningur
-                    print("Rotta 2 er kominn á reit", rotta2.stadur)
+                    print("Rotta 2 er kominn á reit   :", rotta2.stadur)
                 elif att == 2:
                     print("Rotta 2 fær", teningur, "og fer til baka")
                     rotta2.stadur = rotta2.stadur - teningur
-                    print("Rotta 2 er kominn á reit", rotta2.stadur)
+                    print("Rotta 2 er kominn á reit   :", rotta2.stadur)
 
                 teningur = random.randint(1, 6)
                 att = random.randint(1 , 2)
                 if att == 1:
                     print("Rotta 3 fær", teningur, "og fer áfram")
                     rotta3.stadur = rotta3.stadur + teningur
-                    print("Rotta 3 er kominn á reit", rotta3.stadur)
+                    print("Rotta 3 er kominn á reit   :", rotta3.stadur)
                 elif att == 2:
                     print("Rotta 3 fær", teningur, "og fer til baka")
                     rotta3.stadur = rotta3.stadur - teningur
-                    print("Rotta 3 er kominn á reit", rotta3.stadur)
+                    print("Rotta 3 er kominn á reit   :", rotta3.stadur)
 
                 teningur = random.randint(1, 6)
                 print("Núna kastar hamsturinn")
                 print("Hamsturinn fær",teningur)
                 hamstur.stadur=hamstur.stadur+teningur
-                print("Hamsturinn er kominn á reit",hamstur.stadur)
+                print("Hamsturinn er kominn á reit :",hamstur.stadur)
 
             elif    svar1=="2":
 
-                print("Þú ert á reit",player1.stadur)
-                print("Rotta1",rotta1.stadur)
-                print("Rotta2", rotta2.stadur)
-                print("Rotta3", rotta3.stadur)
-                print("Hamstur", hamstur.stadur)
-
-
-
-
+                print("Þú ert á reit :",player1.stadur)
+                print("Rotta1 :",rotta1.stadur)
+                print("Rotta2 :", rotta2.stadur)
+                print("Rotta3 :", rotta3.stadur)
+                print("Hamstur :", hamstur.stadur)
 
 
