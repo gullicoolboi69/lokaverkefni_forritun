@@ -1,0 +1,6 @@
+-Reglur yfir leikinn Nagdýr
+-Guðlaugur Haukur Árnason og Ingólfur Óskarsson
+
+Reglurnar eru basic eins og stendur í verkefnalýsingunni en þegar við bætum við öðrum spilara búum við til annað nagdýr sem heitir ,,Kanínan".
+Hún er með sama tilgang og hamsturinn nema hún gengur bara að mús 2(player2) og hamsturinn gengur bara að mús 1(player1).
+svo bættum við tennum og þyngd í leikinn sem að er rúllað upp eins og afl nema við bætum þeim öllum saman í eina heild t.d. Mús eitt er með 2 í afl, 4 í tönnum og 6 í þyngd þá bætist það allt saman í eina heild sem er 6+4+2=12
