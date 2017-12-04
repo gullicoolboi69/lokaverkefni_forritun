@@ -1,31 +1,34 @@
 #Lokaverkefni
 #Ingólfur Óskarsson
-import random
+#Guðlaugur Haukur Árnason
+import random #Látið inn random
 
 
 
-
+#Klassi búinn til
 class Nagdyr:
 
+    
+    def __init__(self,tegund,stadur,afl,þyngd,tennur):#Smiðurinn búinn til
+        self.tegund=tegund#Tegund af nagdýri
+        self.afl=afl#Hversu mikið afl
+        self.stadur=stadur#Staðsetningin
+        self.þyngd=þyngd#Þyngdin
+        self.tennur=tennur#Hversu hvassar tennur
 
-    def __init__(self,tegund,stadur,afl,þyngd,tennur):
-        self.tegund=tegund
-        self.afl=afl
-        self.stadur=stadur
-        self.þyngd=þyngd
-        self.tennur=tennur
 
-
-
-svar=0
-while svar!="3":
-    player1 = Nagdyr("Mús", 0, random.randrange(2, 7, 2), random.randint(1, 3), random.randrange(2, 7, 2))
-    player2 = Nagdyr("Mús", 0, random.randrange(2, 7, 2), random.randint(1, 3), random.randrange(2, 7, 2))
-    rotta1 = Nagdyr("Rotta", random.randrange(1, 100), random.randrange(2, 7, 2),random.randint(1, 3),random.randrange(2, 7, 2))
-    rotta2 = Nagdyr("Rotta", random.randrange(1, 100), random.randrange(2, 7, 2),random.randint(1, 3),random.randrange(2, 7, 2))
-    rotta3 = Nagdyr("Rotta", random.randrange(1, 100), random.randrange(2, 7, 2),random.randint(1, 3),random.randrange(2, 7, 2))
-    hamstur = Nagdyr("Hamstur", random.randrange(1, 50), random.randrange(2, 7, 2),0,0)
-    kaninan = Nagdyr("Kaninan", random.randrange(1, 50), random.randrange(2, 7, 2), 0, 0)
+#While lykkja
+svar=0 #Svarið byrjar sem 0
+while svar!="3":#Svo lengi að svarið er ekki 3, þá heldur lykkjan áfram
+    oftkast1=0#Telur hversu oft spilari 1 kastar
+    oftkast2=0#Telur hversu oft spilar 2 kastar
+    player1 = Nagdyr("Mús", 0, random.randrange(2, 7, 2), random.randint(1, 3), random.randrange(2, 7, 2))#Stats fyrir player 1(tegund,afl,þyngd og tennur)
+    player2 = Nagdyr("Mús", 0, random.randrange(2, 7, 2), random.randint(1, 3), random.randrange(2, 7, 2))#Stats fyrir player 2(tegund,afl,þyngd og tennur)
+    rotta1 = Nagdyr("Rotta", random.randrange(1, 100), random.randrange(2, 7, 2),random.randint(1, 3),random.randrange(2, 7, 2))#Stats fyrir rottu 1(tegund,afl,staðsetning,þyngd og tennur)
+    rotta2 = Nagdyr("Rotta", random.randrange(1, 100), random.randrange(2, 7, 2),random.randint(1, 3),random.randrange(2, 7, 2))#Stats fyrir rottu 2(tegund,afl,staðsetning,þyngd og tennur)
+    rotta3 = Nagdyr("Rotta", random.randrange(1, 100), random.randrange(2, 7, 2),random.randint(1, 3),random.randrange(2, 7, 2))#Stats fyrir rottur 3(tegund,afl,staðsetning,þyngd og tennur)
+    hamstur = Nagdyr("Hamstur", random.randrange(1, 50), random.randrange(2, 7, 2),0,0)#Stats fyrir hamstur(tegund,afl og staðsetning)
+    kaninan = Nagdyr("Kaninan", random.randrange(1, 50), random.randrange(2, 7, 2), 0, 0)#Stats fyrir kaninu(tegund,afl og staðsetning)
     # Hérna tökum við aflið, þyngdinna og hversu hvassar tennur og leggjum það saman í power
     powermus = player1.afl + player1.þyngd + player1.tennur
     powermus2 = player2.afl + player2.þyngd + player2.tennur
@@ -42,32 +45,35 @@ while svar!="3":
     tvoplayer=0
     if svar == "2":
         tvoplayer=1
+        svar = "1"
 
-    if svar=="1" or "2":
+    if svar=="1":
         svar1=0
-        while svar1!="3":
+        while svar1!="3":#While lykkja fyrir leikinn sjálfan
             print("\n-----Valmynd-----")
             print("1 - Kasta teningi?")
             print("2 - Staðsetning?")
             print("3 - Hætta")
+            print("-------------------")
             svar1=input("Sláðu inn tölu frá bilinu 1-3 ")
 
 
 
             if svar1=="1":
-                print("\nMús 1 kastar teningi ")
+                print("\n------Mús 1-------")
+                print("Mús 1 kastar teningi ")
                 teningur = random.randint(1, 6)
                 print("Mús 1 fékk =", teningur)
 
 
-
+                #For lykkja til að tjekka hvort rotta eða hamstur er á sama reit
                 for x in range(player1.stadur, teningur+player1.stadur):
 
                     x=x+1
-                    print(x)
                     if rotta1.stadur == x:
 
                         print("Þú ert á sama reit og rotta 1")
+                        #bardagi á milli rottu og mús
                         if powerrotta1 > powermus:
                             print("\nRottan vinnur\n")
                             player1.stadur = player1.stadur - teningur - rotta1.afl
@@ -75,7 +81,7 @@ while svar!="3":
                         elif powerrotta1 < powermus:
                             print("\nMús 1 vinnur\n")
                         else:
-                            print("Jafntefli")
+                            print("Jafntefli")#Ef það er jafntefli þá gerist ekkert
 
                         #athuga hvort músin eða rottan hefur meira afl
                     elif rotta2.stadur == x:
@@ -100,26 +106,26 @@ while svar!="3":
                         else:
                             print("Jafntefli")
 
-                    elif hamstur.stadur == x:
+                    elif hamstur.stadur == x:#Ef mús/hamstur rekst á hvorn annan þá kastar hamsturinn honum áfram
                         print("\nHAMSTURINN KASTAR ÞÉR ÁFRAM!\n")
                         player1.stadur = player1.stadur + hamstur.afl
                         print("\n Þú lentir á reit",player1.stadur)
 
-
+                oftkast1=oftkast1 + 1#Telur kast
                 player1.stadur = player1.stadur + teningur
-                if player1.stadur < 0:
+                if player1.stadur < 0:#Ef spilarinn fer í mínus, þá er hann settur aftur í 0
                     player1.stadur = 0
                 print("Þú ert á reit", player1.stadur)
 
-                if tvoplayer == 1:
-                    print("\nNú kastar mús 2 ")
+                if tvoplayer == 1:#Ef player 2 er með þá fer þessi if setning í gang
+                    print("\n------Mús 2-------")
+                    print("Nú kastar mús 2 ")
                     teningur = random.randint(1, 6)
                     print("Mús 2 fékk =", teningur)
 
-                    for x in range(player2.stadur, teningur + player2.stadur):
+                    for x in range(player2.stadur, teningur + player2.stadur):#For lykkja fyrir player 2 hvort hann rekst á rottu eða kanínu
 
                         x = x + 1
-                        print(x)
                         if rotta1.stadur == x:
 
                             print("Þú ert á sama reit og rotta 1")
@@ -160,22 +166,23 @@ while svar!="3":
                             player2.stadur = player2.stadur + hamstur.afl
                             print("\n Þú lentir á reit", player2.stadur)
 
-
-                player2.stadur = player2.stadur + teningur
-                if player2.stadur < 0:
-                    player2.stadur = 0
-                print("Þú ert á reit", player2.stadur)
+                    oftkast2=oftkast2 + 1#telur kast
+                    player2.stadur = player2.stadur + teningur
+                    if player2.stadur < 0:
+                        player2.stadur = 0
+                    print("Þú ert á reit", player2.stadur)
 
                 teningur = random.randint(1, 6)
-                print("Núna kasta rotturnar")
-                att1=random.randint(1,2)
+                print("\nNúna kasta rotturnar\n")
+                print("------Rotta 1-------")
+                att1=random.randint(1,2)#Ákveður í hvaða átt rottan fer í
                 if att1 == 1:
                     print("Rotta 1 fær", teningur,"og fer áfram")
                     for x in range(rotta1.stadur,rotta1.stadur+teningur):
                         x=x+1
                         if player1.stadur == x:
                             print("Rotta 1 hittir mús 1")
-                            if powerrotta1 > powermus:
+                            if powerrotta1 > powermus:#bardagi á milli rottu og mús
                                 print("\nRotta 1 vinnur")
                                 player1.stadur = player1.stadur - rotta1.afl
                                 print("Mús 1 fer til baka um", rotta1.afl, "marga reiti")
@@ -204,7 +211,9 @@ while svar!="3":
                                     print("Jafntefli")
 
                     rotta1.stadur = rotta1.stadur + teningur
-                    print("Rotta 1 er kominn á reit", rotta1.stadur)
+                    if rotta1.stadur > 100:#Ef rotta fer yfir 100 þá fer hún til baka í 100
+                        rotta1.stadur = 100
+                    print("Rotta 1 er kominn á reit", rotta1.stadur,"\n")
                 elif att1 == 2:
                     print("Rotta 1 fær", teningur,"og fer til baka")
                     for x in range(rotta1.stadur,rotta1.stadur - teningur,-1):
@@ -218,7 +227,7 @@ while svar!="3":
                             elif powerrotta1 < powermus:
                                 print("\nMúsin vinnur")
                                 player1.stadur=player1.stadur + 2
-                                print("Mús 1 fer áfram um 2")
+                                print("Mús 1 fer áfram um 2")#Ef rotta rekst á mús og músin vinnur, þá fer hún áfram um 2
                                 print("Mús 1 er kominn á reit", player1.stadur)
                             else:
                                 print("Jafntefli")
@@ -239,16 +248,17 @@ while svar!="3":
                                 else:
                                     print("Jafntefli")
                     rotta1.stadur = rotta1.stadur - teningur
-                    print("Rotta 1 er kominn á reit", rotta1.stadur)
+                    print("Rotta 1 er kominn á reit", rotta1.stadur,"\n")
 
                 teningur = random.randint(1, 6)
+                print("------Rotta 2-------")
                 att2 = random.randint(1 , 2)
                 if att2 == 1:
                     print("Rotta 2 fær", teningur, "og fer áfram")
                     for x in range(rotta2.stadur,rotta2.stadur + teningur):
                         x=x+1
                         if player1.stadur == x:
-                            print("Rotta 2 hittir mús")
+                            print("\nRotta 2 hittir mús")
                             if powerrotta2 > powermus:
                                 print("\nRotta 2 vinnur")
                                 player1.stadur = player1.stadur - rotta2.afl
@@ -264,7 +274,7 @@ while svar!="3":
                         for x in range(rotta2.stadur, rotta2.stadur + teningur):
                             x = x + 1
                             if player2.stadur == x:
-                                print("Rotta 2 hittir mús 2")
+                                print("\nRotta 2 hittir mús 2")
                                 if powerrotta2 > powermus2:
                                     print("\nRotta 2 vinnur")
                                     player2.stadur = player2.stadur - rotta2.afl
@@ -277,13 +287,15 @@ while svar!="3":
                                 else:
                                     print("Jafntefli")
                     rotta2.stadur = rotta2.stadur + teningur
-                    print("Rotta 2 er kominn á reit", rotta2.stadur)
+                    if rotta2.stadur > 100:
+                        rotta2.stadur = 100
+                    print("Rotta 2 er kominn á reit", rotta2.stadur,"\n")
                 elif att2 == 2:
                     print("Rotta 2 fær", teningur, "og fer til baka")
                     for x in range(rotta2.stadur,rotta2.stadur - teningur,-2):
                         x=x-1
                         if player1.stadur == x:
-                            print("Rotta 2 hittir mús")
+                            print("\nRotta 2 hittir mús")
                             if powerrotta2 > powermus:
                                 print("\nRotta 2 vinnur")
                                 player1.stadur = player1.stadur - rotta2.afl
@@ -299,7 +311,7 @@ while svar!="3":
                         for x in range(rotta2.stadur, rotta2.stadur + teningur):
                             x = x + 1
                             if player2.stadur == x:
-                                print("Rotta 2 hittir mús 2")
+                                print("\nRotta 2 hittir mús 2")
                                 if powerrotta2 > powermus2:
                                     print("\nRotta 2 vinnur")
                                     player2.stadur = player2.stadur - rotta2.afl
@@ -312,9 +324,10 @@ while svar!="3":
                                 else:
                                     print("Jafntefli")
                     rotta2.stadur = rotta2.stadur - teningur
-                    print("Rotta 2 er kominn á reit", rotta2.stadur)
+                    print("Rotta 2 er kominn á reit", rotta2.stadur,"\n")
 
                 teningur = random.randint(1, 6)
+                print("------Rotta 3-------")
                 att3 = random.randint(1 , 2)
                 if att3 == 1:
                     print("Rotta 3 fær", teningur, "og fer áfram")
@@ -337,7 +350,7 @@ while svar!="3":
                         for x in range(rotta3.stadur, rotta3.stadur + teningur):
                             x = x + 1
                             if player2.stadur == x:
-                                print("Rotta 3 hittir mús 2")
+                                print("\nRotta 3 hittir mús 2")
                                 if powerrotta3 > powermus2:
                                     print("\nRotta 3 vinnur")
                                     player2.stadur = player2.stadur - rotta3.afl
@@ -350,13 +363,15 @@ while svar!="3":
                                 else:
                                     print("Jafntefli")
                     rotta3.stadur = rotta3.stadur + teningur
-                    print("Rotta 3 er kominn á reit", rotta3.stadur)
+                    if rotta3.stadur > 100:
+                        rotta3.stadur = 100
+                    print("Rotta 3 er kominn á reit", rotta3.stadur,"\n")
                 elif att3 == 2:
                     print("Rotta 3 fær", teningur, "og fer til baka")
                     for x in range(rotta3.stadur,rotta3.stadur - teningur,-1):
                         x=x-1
                         if player1.stadur == x:
-                            print("Rotta 1 hittir mús 1")
+                            print("\nRotta 1 hittir mús 1")
                             if powerrotta3 > powermus:
                                 print("\nRotta vinnur")
                                 player1.stadur = player1.stadur - rotta3.afl
@@ -372,7 +387,7 @@ while svar!="3":
                         for x in range(rotta3.stadur, rotta3.stadur + teningur):
                             x = x + 1
                             if player2.stadur == x:
-                                print("Rotta 3 hittir mús 2")
+                                print("\nRotta 3 hittir mús 2")
                                 if powerrotta3 > powermus2:
                                     print("\nRotta 3 vinnur")
                                     player2.stadur = player2.stadur - rotta3.afl
@@ -385,9 +400,10 @@ while svar!="3":
                                 else:
                                     print("Jafntefli")
                     rotta3.stadur = rotta3.stadur - teningur
-                    print("Rotta 3 er kominn á reit", rotta3.stadur)
+                    print("Rotta 3 er kominn á reit", rotta3.stadur,"\n")
 
                 teningur = random.randint(1, 6)
+                print("\n------Hamsturinn-------")
                 print("Núna kastar hamsturinn")
                 if player1.stadur < 0:
                     player1.stadur = 0
@@ -396,12 +412,13 @@ while svar!="3":
                 print("Hamsturinn fær",teningur)
                 #Hvort hamsturinn fer áfram eða afturábak að músinni
                 if player1.stadur > hamstur.stadur:
-                #Hvort að hamstur fer framhjá mús
+                #Hvort að hamstur Rekst á mús
                     for x in range(hamstur.stadur,hamstur.stadur+teningur):
                         x=x+1
                         if player1.stadur == x:
-                            print("HAMSTURINN KASTAR ÞÉR ÁFRAM!")
+                            print("\nHAMSTURINN KASTAR ÞÉR ÁFRAM!")
                             player1.stadur=player1.stadur + hamstur.afl
+                            print("Þú lentir á reit",player1.stadur,"\n")
                     hamstur.stadur=hamstur.stadur+teningur
                 #Tjekkar hvort hamstur og rotta er á sama stað
                     if hamstur.stadur == rotta1.stadur:
@@ -452,10 +469,10 @@ while svar!="3":
                 elif player1.stadur < hamstur.stadur:
                 #Hvort að hamstur fer framhjá mús
                     for x in range(hamstur.stadur,hamstur.stadur-teningur,-1):
-                        print(x)
                         if player1.stadur == x:
-                            print("HAMSTURINN KASTAR ÞÉR ÁFRAM!")
-                            player1.stadur=player1.stadur + hamstur.afl
+                            print("\nHAMSTURINN KASTAR ÞÉR ÁFRAM!")
+                            player1.stadur=player1.stadur + hamstur.afl#Ef hamstur/kanínan lendir á spilara, þá kastar hún honum með aflinu sínu
+                            print("Þú lentir á reit",player1.stadur,"\n")
                     hamstur.stadur=hamstur.stadur-teningur
                 #Tjekkar hvort hamstur og rotta er á sama stað
                     if hamstur.stadur == rotta1.stadur:
@@ -504,10 +521,27 @@ while svar!="3":
                             hamstur.stadur=hamstur.stadur + 1
 
                 print("Hamsturinn er kominn á reit",hamstur.stadur)
+                if player1.stadur >=100:#Ef þú lendir á hundrað eða ferð yfir þá vinnur þú leikinn
+                    print("Til hamingju Mús 1 þú vannst! ")
+                    print("     III")
+                    print("   IIIIIII")
+                    print(" IIII   IIII")
+                    print("IIII  1  IIII")                 #bikar
+                    print(" IIII   IIII")
+                    print("   IIIIIII")
+                    print("     III")
+                    print("     III")
+                    print("     III")
+                    print("     III")
+                    print("    IIIII")
+                    print("   IIIIIII")
+                    print("\n Þú Kastaðir Teningnum",oftkast1,"Sinnum")#Sýnir hversu oft þú þurftir að kasta
+                    svar1="3"
 
                 if tvoplayer == 1:
                     teningur = random.randint(1, 6)
-                    print("\nNúna kastar Kaninan")
+                    print("\n------Kaninan-------")
+                    print("Núna kastar Kaninan")
                     print("Kaninan fær", teningur)
                     # Hvort kaninan fer áfram eða afturábak að músinni
                     if player2.stadur > kaninan.stadur:
@@ -515,10 +549,11 @@ while svar!="3":
                         for x in range(kaninan.stadur, kaninan.stadur + teningur):
                             x = x + 1
                             if player2.stadur == x:
-                                print("KANÍNAN KASTAR ÞÉR ÁFRAM!")
+                                print("\nKANÍNAN KASTAR ÞÉR ÁFRAM!")
                                 player2.stadur = player2.stadur + hamstur.afl
+                                print("Þú lentir á reit",player2.stadur,"\n")
                         kaninan.stadur = kaninan.stadur + teningur
-                        # Tjekkar hvort hamstur og rotta er á sama stað
+                        # Tjekkar hvort kanína og rotta er á sama stað
                         if kaninan.stadur == rotta1.stadur:
                             print("Kaninan lenti á sama reit og rotta 1")
                             if att1 == 1:
@@ -565,14 +600,14 @@ while svar!="3":
                                 kaninan.stadur = kaninan.stadur - 1
 
                     elif player2.stadur < kaninan.stadur:
-                        # Hvort að hamstur fer framhjá mús
+                        # Hvort að Kanina fer framhjá mús
                         for x in range(kaninan.stadur, kaninan.stadur - teningur, -1):
-                            print(x)
                             if player2.stadur == x:
-                                print("KANÍNAN KASTAR ÞÉR ÁFRAM!")
+                                print("\nKANÍNAN KASTAR ÞÉR ÁFRAM!")
                                 player2.stadur = player2.stadur + kaninan.afl
+                                print("Þú lentir á reit",player2.stadur,"\n")
                         kaninan.stadur = kaninan.stadur - teningur
-                        # Tjekkar hvort hamstur og rotta er á sama stað
+                        # Tjekkar hvort kanina og rotta er á sama stað
                         if kaninan.stadur == rotta1.stadur:
                             print("Kaninan lenti á sama reit og rotta 1")
                             if att1 == 1:
@@ -619,9 +654,25 @@ while svar!="3":
                                 kaninan.stadur = kaninan.stadur + 1
 
                     print("Kanínan er kominn á reit", kaninan.stadur)
+                    if player2.stadur >= 100:
+                        print("Til hamingju Mús 2 þú vannst! ")
+                        print("     III")
+                        print("   IIIIIII")
+                        print(" IIII   IIII")
+                        print("IIII  1  IIII") #bikar
+                        print(" IIII   IIII")
+                        print("   IIIIIII")
+                        print("     III")
+                        print("     III")
+                        print("     III")
+                        print("     III")
+                        print("    IIIII")
+                        print("   IIIIIII")
+                        print("\n Þú Kastaðir Teningnum",oftkast2,"Sinnum")
+                        svar1 = "3"
 
             elif    svar1=="2":
-
+                #Hér er sýnt alla stats á öllum nagdýronum
                 print("Mús 1 er á reit",player1.stadur)
                 print("Mús 1 er",player1.þyngd,"kg.")
                 if player1.tennur == 2:
@@ -630,7 +681,7 @@ while svar!="3":
                     print("Mús 1 ert með hvassar tennur.")
                 elif player1.tennur == 6:
                     print("Mús 1 ert með MJÖG hvassar tennur.")
-                if tvoplayer == 1:
+                if tvoplayer == 1:#Ef player 2 er með þá fer þessi if setning í gang
                     print("Mús 2 er á reit", player2.stadur)
                     print("Mús 2 er",player2.þyngd,"kg.")
                     if player2.tennur == 2:
@@ -666,9 +717,3 @@ while svar!="3":
                 print("Hamstur er á reit", hamstur.stadur)
                 if tvoplayer == 1:
                     print("Kanínan er á reit",kaninan.stadur)
-
-
-
-
-
-
