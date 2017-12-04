@@ -1,6 +1,15 @@
--Reglur yfir leikinn Nagdır
--Guğlaugur Haukur Árnason og Ingólfur Óskarsson
+-Reglur yfir leikinn NagdÃ½r
+-GuÃ°laugur Haukur Ãrnason og IngÃ³lfur Ã“skarsson
 
-Reglurnar eru basic eins og stendur í verkefnalısingunni en şegar viğ bætum viğ öğrum spilara búum viğ til annağ nagdır sem heitir ,,Kanínan".
-Hún er meğ sama tilgang og hamsturinn nema hún gengur bara ağ mús 2(player2) og hamsturinn gengur bara ağ mús 1(player1).
-svo bættum viğ tennum og şyngd í leikinn sem ağ er rúllağ upp eins og afl nema viğ bætum şeim öllum saman í eina heild t.d. Mús eitt er meğ 2 í afl, 4 í tönnum og 6 í şyngd şá bætist şağ allt saman í eina heild sem er 6+4+2=12
+VerkefnalÃ½sing:
+ÃaÃ° er hÃ¦gt aÃ° hugsa sÃ©r aÃ° Ã¾etta sÃ© nokkurs konar borÃ°spil, en Ã¾aÃ° er spilaÃ° Ã­ console.
+Leikurinn gengur Ãºt Ã¡ aÃ° koma mÃºs frÃ¡ upphafsreit til endareits, 100 reitir.
+Ã leiÃ°inn getur mÃºsin rekist Ã¡ 3 rottur sem hÃºn Ã¾arf aÃ° berjast viÃ° eÃ°a hamstur sem hjÃ¡lpar henni Ã¡fram.
+UpphafsstaÃ°a Ã¡ rottum og hamstri er random.
+Ã–ll nagdÃ½rin hafa eiginleikana tegund, staÃ°setning, og afl = (random 2, 4 eÃ°a 6).
+Ã lokin Ã¾arf aÃ° birta upplÃ½singar um hve oft mÃºsin Ã¾urfti aÃ° kasta til aÃ° komast Ã¡ leiÃ°arenda.
+
+aukareglur frÃ¡ okkur:
+Reglurnar eru basic eins og stendur Ã­ verkefnalÃ½singunni en Ã¾egar viÃ° bÃ¦tum viÃ° Ã¶Ã°rum spilara bÃºum viÃ° til annaÃ° nagdÃ½r sem heitir ,,KanÃ­nan".
+HÃºn er meÃ° sama tilgang og hamsturinn nema hÃºn gengur bara aÃ° mÃºs 2(player2) og hamsturinn gengur bara aÃ° mÃºs 1(player1).
+svo bÃ¦ttum viÃ° tÃ¶nnum og Ã¾yngd Ã­ leikinn sem aÃ° er rÃºllaÃ° upp eins og afl nema viÃ° bÃ¦tum Ã¾eim Ã¶llum saman Ã­ eina heild t.d. MÃºs eitt er meÃ° 2 Ã­ afl, 4 Ã­ tÃ¶nnum og 6 Ã­ Ã¾yngd Ã¾Ã¡ bÃ¦tist Ã¾aÃ° allt saman Ã­ eina heild sem er 6+4+2=12
